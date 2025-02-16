@@ -118,6 +118,9 @@ export class Renderer {
     document
       .querySelector('.event-modal-window__close-button')
       .addEventListener('click', this.boundCloseModalWindow);
+    document
+      .querySelector('.event-modal-window')
+      .addEventListener('click', e => e.stopPropagation());
 
     this.backdrop.addEventListener('click', this.boundCloseModalWindow);
   }
