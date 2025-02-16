@@ -1,0 +1,32 @@
+{
+  "name": "Event Booster",
+  "version": "2.0.0",
+  "description": "",
+  "type": "module",
+  "homepage": "https://github.com/Kilim4ik/EventBooster",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /EventBooster/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kilim4ik/EventBooster.git"
+  },
+  "keywords": [],
+  "author": "Lavrovskyi Danylo <lavrovskiy.danya@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kilim4ik/EventBooster/issues"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "parcel": "^2.13.3",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "posthtml-include": "^1.7.4",
+    "svgo": "^3.3.2"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}

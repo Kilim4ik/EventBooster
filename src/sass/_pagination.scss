@@ -1,0 +1,41 @@
+.pagination {
+  &-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 60px auto;
+    height: 30px;
+    & span {
+      color: $main-text-color;
+      padding: 6px 12px;
+      font-family: $main-font;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17px;
+
+      &.active {
+        border: 1px solid $accent-color;
+        border-radius: 10px 0 10px 0;
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-diversity--min) {
+  .pagination {
+    &-container {
+      & span {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
+}
+@media (min-width: $laptop-diversity--min) {
+  .pagination {
+    &-container {
+      margin: 80px auto;
+    }
+  }
+}

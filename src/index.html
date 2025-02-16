@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="find best events around the world" />
+    <title>Event Booster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+
+  <body>
+    <header id="header" class="header">
+      <svg
+        class="web-site-logo"
+        viewBox="0 0 107 90"
+        preserveAspectRatio="none"
+      >
+        <use href="./svg/logo.svg#logo" />
+      </svg>
+
+      <div class="hederer-container">
+        <h1 class="header__title">FIND BEST EVENTS AROUND THE WORLD</h1>
+        <form class="header__form-container">
+          <div class="search-bar">
+            <input
+              type="text"
+              id="searchInputCountries"
+              class="search-input"
+              placeholder="Start searching..."
+            />
+            <button
+              class="button-search-event"
+              type="button"
+              id="buttonEventCountries"
+            >
+              <img src="./svg/search icon.svg" alt="icon-search" />
+            </button>
+          </div>
+          <div class="search-bar">
+            <input
+              list="suggestions"
+              id="country-input"
+              class="search-input"
+              placeholder="Choose country"
+            />
+            <datalist id="suggestions"> </datalist>
+          </div>
+        </form>
+      </div>
+
+      <picture>
+        <source
+          srcset="
+            ./images/mobile-header-background-1x.png 1x,
+            ./images/mobile-header-background-2x.png 2x,
+            ./images/mobile-header-background-3x.png 3x
+          "
+          media="(max-width: 767px)"
+        />
+
+        <source
+          srcset="
+            ./images/tablet-header-background-1x.png 1x,
+            ./images/tablet-header-background-2x.png 2x,
+            ./images/tablet-header-background-3x.png 3x
+          "
+          media="(min-width: 768px) and (max-width: 1279px)"
+        />
+        <source
+          srcset="
+            ./images/laptop-header-background-1x.png 1x,
+            ./images/laptop-header-background-2x.png 2x,
+            ./images/laptop-header-background-3x.png 3x
+          "
+          media="(min-width: 1280px)"
+        />
+        <img
+          class="header__background"
+          src="./images/laptop-header-background-1x.png"
+          alt="background"
+        />
+      </picture>
+      <a href="#header" class="up-button">
+        <span class="mid-line"></span>
+      </a>
+    </header>
+    <main>
+      <section class="events-section">
+        <div class="events-container"></div>
+      </section>
+      <section>
+        <div class="pagination-container"></div>
+      </section>
+    </main>
+    <div class="backdrop is-hidden"></div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
