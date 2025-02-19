@@ -1,5 +1,6 @@
 'use strict';
 import { fetchEvents } from './fetch-events-data-with-key.js';
+import { getBestImage } from './imageFinder.js';
 import { getPaginationButtons } from './pagination.js';
 
 export class Renderer {
@@ -29,12 +30,13 @@ export class Renderer {
   renderEvents(obj) {
     this.eventsContainer.innerHTML = obj.events
       .map(elem => {
+        const elemPhoto = getBestImage(elem.images);
         const venueName =
           elem._embedded?.venues?.[0]?.name || 'The location is not specified';
 
         return `
         <div class="event-card" id='${elem.id}'>
-          <img src="${elem.images[4].url}" alt="${elem.name} poster" class="event-card__image" >
+          <img src="${elemPhoto}" alt="${elem.name} poster" class="event-card__image" >
           <h3 class="event-card__title">${elem.name}</h3>
           <p class="event-card__date">${elem.dates.start.localDate}</p>
           <p class="event-card__location">${venueName}</p>
@@ -61,16 +63,17 @@ export class Renderer {
     });
   }
   renderModalWindow(elem) {
+    const elemPhoto = getBestImage(elem.images);
     this.backdrop.innerHTML = `
     <div class="event-modal-window">
     <button class="event-modal-window__close-button">x</button>
-    <img class='event-modal-window__avatar' src="${elem.images[4].url}" alt="${
+    <img class='event-modal-window__avatar' src="${elemPhoto}" alt="${
       elem.name
     }" />
     <div class="event-modal-window__content">
-      <img class='event-modal-window__poster' src="${
-        elem.images[4].url
-      }" alt="${elem.name}" />
+      <img class='event-modal-window__poster' src="${elemPhoto}" alt="${
+      elem.name
+    }" />
       <div class="event-modal-window__info">
         <h2 class="event-modal-window__title">INFO</h2>
         <p class="event-modal-window__text">${

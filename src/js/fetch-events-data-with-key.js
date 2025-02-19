@@ -15,7 +15,7 @@ export const fetchEvents = ({ page }) => {
       apikey: 'QcV4xVHAyk410RrmWruoaQyfKz244DeP',
       page,
       keyword: searchInput.value.trim().toLowerCase(),
-      locale: getCountryCode(),
+      countryCode: getCountryCode(),
     }).filter(([_, value]) => value !== undefined && value !== '')
   );
   const data = getData();
