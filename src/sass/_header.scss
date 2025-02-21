@@ -6,7 +6,10 @@
     font-weight: 900;
     line-height: 22px;
     max-width: 212px;
-    justify-self: center;
+    -ms-grid-column-align: center;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
     padding-top: 78px;
   }
   &__background {
@@ -19,6 +22,7 @@
   &__form-container {
     width: 84%;
     max-width: 500px;
+    display: -ms-grid;
     display: grid;
     gap: 25px;
     margin: 25px auto 0;
@@ -28,18 +32,50 @@
 .search {
   &-input {
     width: 100%;
-    background: none;
+    background: transparent;
     border: none;
     outline: none;
     color: $blured-color;
     font-size: 16px;
     font-family: $main-font;
+    &:-webkit-autofill {
+      background-color: transparent;
+      color: $blured-color;
+      transition: background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $blured-color;
+      font-size: 16px;
+      font-family: $main-font;
+    }
+
+    &::-moz-placeholder {
+      color: $blured-color;
+      font-size: 16px;
+      font-family: $main-font;
+    }
+
+    &:-ms-input-placeholder {
+      color: $blured-color;
+      font-size: 16px;
+      font-family: $main-font;
+    }
+
+    &::-ms-input-placeholder {
+      color: $blured-color;
+      font-size: 16px;
+      font-family: $main-font;
+    }
+
     &::placeholder {
       color: $blured-color;
       font-size: 16px;
       font-family: $main-font;
     }
   }
+
   &-bar {
     padding: 10px 30px;
     display: flex;
@@ -48,18 +84,20 @@
     background-color: rgba(255, 255, 255, 0.2);
   }
 }
-
 @supports (-webkit-backdrop-filter: blur(20px)) {
   .search-input {
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+    backdrop-filter: none;
   }
 }
 
 .button-search-event {
   background: none;
   border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -74,6 +112,8 @@
     &__form-container {
       margin-top: 27px;
       max-width: 800px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
       gap: 30px;
       width: 70%;

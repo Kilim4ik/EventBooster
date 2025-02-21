@@ -1,24 +1,42 @@
 .events-container {
+  display: -ms-grid;
   display: grid;
   gap: 30px 4px;
+  -ms-grid-columns: 1fr 4px 1fr;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 25px;
 }
-@keyframes rotate-animation {
+@-webkit-keyframes rotate-animation {
   0% {
-    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
   }
   100% {
-    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+@keyframes rotate-animation {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
   }
 }
 .event-card {
   max-width: 272px;
   position: relative;
+  display: -ms-grid;
   display: grid;
   gap: 5px;
-  justify-content: center;
-  justify-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   &:after {
     content: '';
     width: 79%;
@@ -34,9 +52,11 @@
     margin-top: 9px;
     width: calc(100% - 10px);
     aspect-ratio: 4/5;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 50px 0px 50px 0px;
-    animation: rotate-animation 0.5s ease-in;
+    -webkit-animation: rotate-animation 0.5s ease-in;
+            animation: rotate-animation 0.5s ease-in;
   }
   &__title {
     font-family: $main-font;
@@ -59,6 +79,7 @@
 @media (min-width: $tablet-diversity--min) {
   .events-container {
     gap: 45px 13px;
+    -ms-grid-columns: 1fr 13px 1fr 13px 1fr;
     grid-template-columns: repeat(3, 1fr);
     margin: 0 64px;
   }
@@ -67,6 +88,7 @@
   .events-container {
     width: 964px;
     gap: 50px 56px;
+    -ms-grid-columns: 1fr 56px 1fr 56px 1fr 56px 1fr;
     grid-template-columns: repeat(4, 1fr);
     margin: 0 auto;
   }

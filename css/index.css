@@ -67,7 +67,10 @@ body:not(:has(.backdrop.is-hidden)) {
   font-weight: 900;
   line-height: 22px;
   max-width: 212px;
-  justify-self: center;
+  -ms-grid-column-align: center;
+  margin: 0 auto;
+  text-align: center;
+  display: block;
   padding-top: 78px;
 }
 .header__background {
@@ -87,12 +90,18 @@ body:not(:has(.backdrop.is-hidden)) {
 
 .search-input {
   width: 100%;
-  background: none;
+  background: transparent;
   border: none;
   outline: none;
   color: #939393;
   font-size: 16px;
   font-family: "Montserrat", "serif";
+}
+.search-input:-webkit-autofill {
+  background-color: transparent;
+  color: #939393;
+  -webkit-transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
 }
 .search-input::-moz-placeholder {
   color: #939393;
@@ -115,8 +124,8 @@ body:not(:has(.backdrop.is-hidden)) {
 
 @supports (-webkit-backdrop-filter: blur(20px)) {
   .search-input {
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
   }
 }
 .button-search-event {
@@ -167,7 +176,6 @@ body:not(:has(.backdrop.is-hidden)) {
   grid-template-columns: repeat(2, 1fr);
   margin: 0 25px;
 }
-
 @keyframes rotate-animation {
   0% {
     transform: rotateY(0deg);
@@ -200,7 +208,7 @@ body:not(:has(.backdrop.is-hidden)) {
   width: calc(100% - 10px);
   aspect-ratio: 4/5;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 50px 0px 50px 0px;
   animation: rotate-animation 0.5s ease-in;
 }
@@ -270,7 +278,7 @@ body:not(:has(.backdrop.is-hidden)) {
   border-radius: 50%;
   width: 38%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   aspect-ratio: 1/1;
 }
 .event-modal-window__poster {
@@ -324,7 +332,7 @@ body:not(:has(.backdrop.is-hidden)) {
   .event-modal-window__poster {
     display: block;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
     width: 100%;
     max-height: 86%;
     aspect-ratio: 3/4;
